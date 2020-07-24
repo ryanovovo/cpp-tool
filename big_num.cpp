@@ -167,6 +167,8 @@ string operator /(string dividend, string divisor){
 		tmp.push_back(dividend[i]);
 		if(divisor > tmp){
 			ret.push_back('0');
+			reverse(tmp.begin(), tmp.end());
+			while(tmp.size() > 0&&tmp.back() == '0') tmp.pop_back();
 		}
 		else{
 			int it = 0;
@@ -190,6 +192,4 @@ string operator /(string dividend, string divisor){
 	return ret;
 }
 int main(){
-	
-	//using string
 }
