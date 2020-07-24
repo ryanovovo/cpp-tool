@@ -122,8 +122,10 @@ string operator *(string multiplicant, string multiplier){
 	return ret;
 }
 string operator -(string minuend, string subtrahend){
+	bool negative = false;
 	if(minuend < subtrahend){
-		return "sub -1";
+		negative = true;
+		swap(minuend, subtrahend);	
 	}
 	reverse(minuend.begin(), minuend.end());
 	reverse(subtrahend.begin(), subtrahend.end());
@@ -146,6 +148,9 @@ string operator -(string minuend, string subtrahend){
 		}
 	}
 	while(ret.size() > 1&&ret.back() == '0') ret.pop_back();
+	if(negative == true){
+		ret.push_back('-');
+	}
 	reverse(ret.begin(), ret.end());
 	return ret;
 }
@@ -185,5 +190,6 @@ string operator /(string dividend, string divisor){
 	return ret;
 }
 int main(){
+	
 	//using string
 }
